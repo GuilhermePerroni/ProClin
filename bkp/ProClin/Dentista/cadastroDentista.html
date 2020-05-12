@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<HTML lang="pt-br">
+	<HEAD>
+		<meta charset=utf-8>
+		<title> ProClin Prótese Dentária </title>
+		
+		<link rel="stylesheet" type="text/css" href="Style.css">
+		<script type="text/javascript" src="codigo.js"></script>
+		
+	</HEAD>
+	<BODY onload="criarAbrirBanco()">
+		<div id="geral">
+			<div class="form-style-2">
+				<div class="form-style-2-heading">Cadastro de Dentista</div>
+					<label for="field1"><span>Nº Dentista <span class="required">*</span></span>
+						<input disabled type="text" class="input-field" name="idDentista" value="" id="idDentista"  />
+					</label>
+					<label for="field1"><span>Dentista <span class="required">*</span></span>
+						<input type="text" class="input-field" name="nomeDentista" value="" id="nomeDentista"  />
+					</label>
+						<button class="btn" onclick="inserirDentista()"> Novo </button>
+						<button class="btn" onclick="atualizarDentista()"> Atualiza </button>
+						<button class="btn" onclick="excluirDentista()"> Excluir </button>
+						
+				<br>	
+				<br>
+				<div class="form-style-2-heading">Lista de Dentistas</div>		
+					<div id="listaDentista" name="listaDentista"> Sem itens </div>
+				<br>
+				<a href="..\ProClin.html" class="inicio">Início</a> 		
+					
+			</div>
+		</div>
+	</BODY>
+</HTML>
+

@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<HTML lang="pt-br">
+	<HEAD>
+		<meta charset=utf-8>
+		<title> ProClin Prótese Dentária </title>
+		
+		<link rel="stylesheet" type="text/css" href="Style.css">
+		<script type="text/javascript" src="codigo.js"></script>
+		
+		
+		<script type="text/javascript" src="jquery.js" ></script>
+		<script type="text/javascript" src="jquery.maskMoney.js" ></script>
+		<script type="text/javascript" src="jquery.maskedinput.js" ></script>
+		
+		
+	
+	<script>
+        $(document).ready(function(){
+              $("#valor").maskMoney({showSymbol:false, symbol:"R$", decimal:".", thousands:""});
+			  $("#DATAENTRADA").mask("99/99/9999");
+			  
+			  
+        });
+    </script>
+		
+	</script>	
+	</HEAD>
+	<BODY onload="criarAbrirBanco()">
+		<div id="geral">
+
+			<div class="form-style-2">
+				<div class="form-style-2-heading">Lançamentos <a href="..\ProClin.html" class="inicio">Início</a>		</div>
+					<label for="field1"><span>Nº Lan. <span class="required">*</span></span>
+						<input disabled type="text" class="input-field" name="idLancamento" value="" id="idLancamento"  />
+					</label>
+	
+					<div id="listaDenstista"   name="listaDenstista"> </div>
+					<div id="listaTipoServico" name="listaTipoServico"> </div>
+					<div id="listaQualidade"   name="listaQualidade"> </div>
+					<div id="listaCor"         name="listaCor"> </div>
+					<div id="listaEscala"      name="listaEscala"> </div>
+					
+						
+					
+					<label for="field1"><span>Paciente<span class="required">*</span></span>
+						<input type="text" class="input-field" name="nomePaciente" value="" id="nomePaciente"  />
+					</label>
+					<label for="field1"><span>Data Entrada<span class="required">*</span></span>
+						<input type="date" class="input-field" name="dataEntrada" value="" id="dataEntrada"  />
+					</label>
+					<label for="field1"><span>Data Entrega<span class="required">*</span></span>
+						<input type="date" class="input-field" name="dataEntrega" value="" id="dataEntrega"  />
+					</label>
+					<label for="field1"><span>Previsão<span class="required">*</span></span>
+						<input type="date" class="input-field" name="dataPrevisao" value="" id="dataPrevisao"  />
+					</label>
+					<label for="field1"><span>Observação<span class="required">*</span></span>
+						<input type="text" class="input-field" name="observacao" value="" id="observacao"  />
+					</label>
+					<label for="field1"><span>Valor<span class="required">*</span></span>
+						<input type="text" class="input-field" name="valor" value="" id="valor"  />
+					</label>
+			
+
+						<button class="btn" id="novo" onclick="inserirLancamento()"> Novo </button>
+						<button class="btn" onclick="atualizarLancamento()"> Atualiza </button>
+						<button class="btn" onclick="excluirLancamento()"> Excluir </button>
+					
+					
+				<br>	
+				<br>
+					
+				
+		</div>
+			
+			<div class="form-style-3">
+				
+				<div class="form-style-2-heading">Lista de Lançamento</div>	
+				<div class="lista" id="listaLancamento" name="listaLancamento"> Sem itens </div>	
+			
+			</div>
+		
+			<div class="modalLancamento" id="modalLancamento" name="modalLancamento"> </div>
+
+		</div>
+	</BODY>
+</HTML>
+

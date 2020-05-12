@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<HTML lang="pt-br">
+	<HEAD>
+		<meta charset=utf-8>
+		<title> ProClin Prótese Dentária </title>
+		
+		<link rel="stylesheet" type="text/css" href="Style.css">
+		<script type="text/javascript" src="codigo.js"></script>
+		
+		
+		<script type="text/javascript" src="jquery.js" ></script>
+		<script type="text/javascript" src="jquery.maskMoney.js" ></script>
+		<script type="text/javascript" src="jquery.maskedinput.js" ></script>
+		
+		
+	
+	<script>
+        $(document).ready(function(){
+              $("#valor").maskMoney({showSymbol:false, symbol:"R$", decimal:".", thousands:""});
+			  $("#valorPago").maskMoney({showSymbol:false, symbol:"R$", decimal:".", thousands:""});
+			  $("#valorRestante").maskMoney({showSymbol:false, symbol:"R$", decimal:".", thousands:""});
+		
+			  
+			  
+        });
+    </script>
+		
+	</script>	
+	</HEAD>
+	<BODY onload="criarAbrirBanco()">
+		<div id="geral">
+			<div class="form-style-2">
+				<div class="form-style-2-heading">Fechamentos <a href="..\ProClin.html" class="inicio">Início</a></div>
+					<label for="field1"><span>Nº Lan. <span class="required">*</span></span>
+						<input disabled type="text" class="input-field" name="idLancamento" value="" id="idLancamento"  />
+					</label>
+					
+					<label for="field1"><span>Valor<span class="required">*</span></span>
+						<input type="text" class="input-field" name="valor" value="" id="valor"  />
+					</label>
+				
+					<label for="field1"><span>Valor Restante <span class="required">*</span></span>
+						<input disabled type="text" class="input-field" name="valorRestante" value="" id="valorRestante"  />
+					</label>
+	
+					<label for="field1"><span>Valor Pago <span class="required">*</span></span>
+						<input type="text" class="input-field" name="valorPago" value="" id="valorPago"  />
+					</label>
+
+						
+						<button class="btn" onclick="pagarLancamento()"> Pagar </button>
+						<button class="btn" onclick="cancelarConclusao()"> Cancelar </button>
+						
+					
+				<br>	
+				<br>
+					
+				
+			</div>
+			
+			<div class="form-style-3">
+				
+				<div class="form-style-2-heading">Lista de Fechamentos</div>	
+				<div class="lista" id="listaLancamento" name="listaLancamento"> Sem itens </div>	
+			</div
+		</div>
+		<div class="modalLancamento" id="modalLancamento" name="modalLancamento"> </div>
+		
+	</BODY>
+</HTML>
+

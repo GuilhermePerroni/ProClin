@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<HTML lang="pt-br">
+	<HEAD>
+		<meta charset=utf-8>
+		<title> ProClin Prótese Dentária  </title>
+		
+		<link rel="stylesheet" type="text/css" href="Style.css">
+		<script type="text/javascript" src="codigo.js"></script>
+		
+	</HEAD>
+	<BODY onload="criarAbrirBanco()">
+		<div id="geral">
+			<div class="form-style-2">
+				<div class="form-style-2-heading">Cadastro de Escalas</div>
+					<label for="field1"><span>Nº Escala <span class="required">*</span></span>
+						<input disabled type="text" class="input-field" name="idEscala" value="" id="idEscala"  />
+					</label>
+					<label for="field1"><span>Escala<span class="required">*</span></span>
+						<input type="text" class="input-field" name="descricaoEscala" value="" id="descricaoEscala"  />
+					</label>
+						<button class="btn" onclick="inserirEscala()"> Novo </button>
+						<button class="btn" onclick="atualizarEscala()"> Atualiza </button>
+						<button class="btn" onclick="excluirEscala()"> Excluir </button>
+						
+				<br>	
+				<br>
+				<div class="form-style-2-heading">Lista Escala</div>		
+					<div id="listaEscala" name="listaEscala"> Sem itens </div>
+				<br>
+				<a href="..\ProClin.html" class="inicio">Início</a>	
+			</div>
+		</div>
+	</BODY>
+</HTML>
+

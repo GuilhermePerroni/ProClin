@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<HTML lang="pt-br">
+	<HEAD>
+		<meta charset=utf-8>
+		<title> ProClin Prótese Dentária </title>
+		
+		<link rel="stylesheet" type="text/css" href="Style.css">
+		<script type="text/javascript" src="codigo.js"></script>
+		
+	</HEAD>
+	<BODY onload="criarAbrirBanco()">
+		<div id="geral">
+			<div class="form-style-2">
+				<div class="form-style-2-heading">Cadastro de Tipo de Serviço</div>
+					<label for="field1"><span>Nº Serviço <span class="required">*</span></span>
+						<input disabled type="text" class="input-field" name="idTipoServico" value="" id="idTipoServico"  />
+					</label>
+					<label for="field1"><span>Tipo Serviço <span class="required">*</span></span>
+						<input type="text" class="input-field" name="descricaoTipoServico" value="" id="descricaoTipoServico"  />
+					</label>
+						<button class="btn" onclick="inserirTipoServico()"> Novo </button>
+						<button class="btn" onclick="atualizarTipoServico()"> Atualiza </button>
+						<button class="btn" onclick="excluirTipoServico()"> Excluir </button>
+						
+				<br>	
+				<br>
+				<div class="form-style-2-heading">Lista de Tipos de Serviço</div>		
+					<div id="listaTipoServico" name="listaTipoServico"> Sem itens </div>
+				<br>
+				<a href="..\ProClin.html" class="inicio">Início</a>		
+			</div>
+		</div>
+	</BODY>
+</HTML>
+

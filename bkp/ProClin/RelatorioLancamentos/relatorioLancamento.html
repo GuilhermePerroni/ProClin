@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<HTML lang="pt-br">
+	<HEAD>
+		<meta charset=utf-8>
+		<title> ProClin Prótese Dentária </title>
+		
+		<link rel="stylesheet" type="text/css" href="Style.css">
+		<script type="text/javascript" src="codigo.js"></script>
+		
+		
+		<script type="text/javascript" src="jquery.js" ></script>
+		<script type="text/javascript" src="jquery.maskMoney.js" ></script>
+		<script type="text/javascript" src="jquery.maskedinput.js" ></script>
+		
+		
+	
+	<script>
+        $(document).ready(function(){
+              $("#valor").maskMoney({showSymbol:true, symbol:"R$", decimal:",", thousands:""});
+			  $("#DATAENTRADA").mask("99/99/9999");
+			  
+			  
+        });
+    </script>
+		
+	</script>	
+	</HEAD>
+	<BODY onload="criarAbrirBanco()">
+		<div id="geral" name="geral">
+			<div class="form-style-2" id="esconde" >
+				<div class="form-style-2-heading">Lancamentos <a href="..\ProClin.html" class="inicio">Início</a></div>
+					<label for="field1"><span>Nº Lan. <span class="required">*</span></span>
+						<input type="text" class="input-field" name="idLancamento" value="" id="idLancamento"  />
+					</label>
+	
+					<div id="listaDenstista"   name="listaDenstista"> </div>
+					<div id="listaTipoServico" name="listaTipoServico"> </div>
+					<div id="listaQualidade"   name="listaQualidade"> </div>
+					<div id="listaCor"         name="listaCor"> </div>
+					<div id="listaEscala"      name="listaEscala"> </div>
+					
+						
+					
+					
+					<label for="field1"><span>Data Entrada<span class="required">*</span></span>
+						<input type="date" class="input-field" name="dataEntrada" value="" id="dataEntrada"  />
+					</label>
+					<label for="field1"><span>e<span class="required"></span></span>
+						<input type="date" class="input-field" name="dataEntradaFim" value="" id="dataEntradaFim"  />
+					</label>
+					
+					
+					<label for="field1"><span>Data Entrega<span class="required">*</span></span>
+						<input type="date" class="input-field" name="dataEntrega" value="" id="dataEntrega"  />
+					</label>
+					<label for="field1"><span>e<span class="required"></span></span>
+						<input type="date" class="input-field" name="dataEntregaFim" value="" id="dataEntregaFim"  />
+					</label>
+					
+					<label for="field1"><span>Com Valor Pago<span class="required"></span></span>
+						<input type="checkbox" class="input-field" name="taPago" value="" id="taPago"  />
+					</label>
+					
+					<label for="field1"><span>Todos<span class="required"></span></span>
+						<input type="checkbox" class="input-field" name="todos" value="" id="todos"  />
+					</label>
+					<label for="field1"><span>Concluidos<span class="required"></span></span>
+						<input type="checkbox" class="input-field" name="concluidos" value="" id="concluidos"  />
+					</label>
+					<label for="field1"><span>Em Aberto<span class="required"></span></span>
+						<input type="checkbox" class="input-field" name="emAberto" value="" id="emAberto"  />
+					</label>
+					
+					
+					
+			
+					<button class="btn" onclick="mostrarLancamento()"> Pesquisar </button>
+					
+				<br>	
+				<br>
+					
+				
+			</div>
+			
+			<div id="form-style-3" class="form-style-3">
+				
+				<div class="form-style-2-heading">
+					
+					Lista de Serviços
+				
+					<a class="exibirPesq" onclick="mostrar()"> Exibir </a>	
+					<a class="acultarPesq" onclick="esconder()"> Ocultar </a>
+				
+				</div>
+				
+				<div class="lista" id="listaLancamento" name="listaLancamento"> Sem itens </div>	
+			</div
+		</div>
+		
+		
+	</BODY>
+</HTML>
+

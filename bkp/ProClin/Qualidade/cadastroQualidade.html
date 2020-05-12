@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<HTML lang="pt-br">
+	<HEAD>
+		<meta charset=utf-8>
+		<title> ProClin Prótese Dentária </title>
+		
+		<link rel="stylesheet" type="text/css" href="Style.css">
+		<script type="text/javascript" src="codigo.js"></script>
+		
+	</HEAD>
+	<BODY onload="criarAbrirBanco()">
+		<div id="geral">
+			<div class="form-style-2">
+				<div class="form-style-2-heading">Cadastro de Qualidade</div>
+					<label for="field1"><span>Nº Qual. <span class="required">*</span></span>
+						<input disabled type="text" class="input-field" name="idQualidade" value="" id="idQualidade"  />
+					</label>
+					<label for="field1"><span>Qualidade <span class="required">*</span></span>
+						<input type="text" class="input-field" name="descricaoQualidade" value="" id="descricaoQualidade"  />
+					</label>
+						<button class="btn" onclick="inserirQualidade()"> Novo </button>
+						<button class="btn" onclick="atualizarQualidade()"> Atualiza </button>
+						<button class="btn" onclick="excluirQualidade()"> Excluir </button>
+						
+				<br>	
+				<br>
+				<div class="form-style-2-heading">Lista de Qualidade</div>		
+					<div id="listaQualidade" name="listaQualidade"> Sem itens </div>
+				<br>
+				<a href="..\ProClin.html" class="inicio">Início</a>		
+			</div>
+		</div>
+	</BODY>
+</HTML>
+

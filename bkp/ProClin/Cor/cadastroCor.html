@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<HTML lang="pt-br">
+	<HEAD>
+		<meta charset=utf-8>
+		<title> ProClin Prótese Dentária </title>
+		
+		<link rel="stylesheet" type="text/css" href="Style.css">
+		<script type="text/javascript" src="codigo.js"></script>
+		
+	</HEAD>
+	<BODY onload="criarAbrirBanco()">
+		<div id="geral">
+			<div class="form-style-2">
+				<div class="form-style-2-heading">Cadastro de Cores </div>
+					<label for="field1"><span>Nº Cor <span class="required">*</span></span>
+						<input disabled type="text" class="input-field" name="idCor" value="" id="idCor"  />
+					</label>
+					<label for="field1"><span>Cor <span class="required">*</span></span>
+						<input type="text" class="input-field" name="descricaoCor" value="" id="descricaoCor"  />
+					</label>
+						<button class="btn" onclick="inserirCor()"> Novo </button>
+						<button class="btn" onclick="atualizarCor()"> Atualiza </button>
+						<button class="btn" onclick="excluirCor()"> Excluir </button>
+						
+				<br>	
+				<br>
+				<div class="form-style-2-heading">Lista Cores</div>		
+					<div id="listaCor" name="listaCor"> Sem itens </div>
+			<br>
+			<a href="..\ProClin.html" class="inicio">Início</a> 		
+			</div>
+			
+		</div>
+	</BODY>
+</HTML>
+
