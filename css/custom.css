@@ -1,0 +1,9 @@
+input { 
+    text-transform: uppercase;
+}
+
+.boxformulario {
+	border-style:dashed;
+	border-width:1px;
+	border-color:#00897b;
+}

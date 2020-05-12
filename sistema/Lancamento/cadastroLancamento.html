@@ -1,0 +1,141 @@
+<!DOCTYPE HTML>
+<HTML lang="pt-br">
+	<HEAD>
+		<meta charset=utf-8>
+		<title> ProClin Prótese Dentária </title>
+		
+		
+		
+		
+		
+		
+		<!--Import Google Icon Font-->
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!---->
+		<link rel="stylesheet" type="text/css" href="../../css/materialize.css">
+		<link rel="stylesheet" type="text/css" href="../../css/custom.css">
+		
+		<!--<link rel="stylesheet" type="text/css" href="Style.css">-->
+		<script type="text/javascript" src="../../js/codigo.js"></script>
+		<script type="text/javascript" src="codigo.js"></script>
+		
+		<script type="text/javascript" src="jquery.js" ></script>
+		<script type="text/javascript" src="jquery.maskMoney.js" ></script>
+		<script type="text/javascript" src="jquery.maskedinput.js" ></script>
+		
+		
+	
+	</HEAD>
+	<BODY onload="criarAbrirBanco()">
+		<div class="row">
+			
+			<div class="row">
+			
+			<div class="col s12 boxformulario">
+				<h5 class="center-align" >Cadastro de Lancamento</h5>
+					
+					
+					<div class="input-field col s3">
+						<input disabled type="text" id="idLancamento" placeholder="">	
+						<label for="idLancamento"> Nº Lancamento </label>
+						
+					</div>
+					
+					<div id="listaDenstista"   name="listaDenstista"> </div>
+					<div id="listaTipoServico" name="listaTipoServico"> </div>
+					<div id="listaTipoServico1" name="listaTipoServico1"> </div>
+					<div id="listaTipoServico2" name="listaTipoServico2"> </div>
+					<div id="listaTipoServico3" name="listaTipoServico3"> </div>
+					<div id="listaTipoServico4" name="listaTipoServico4"> </div>
+					<div id="listaQualidade"   name="listaQualidade"> </div>
+					<div id="listaCor"         name="listaCor"> </div>
+					<div id="listaEscala"      name="listaEscala"> </div>
+					
+					
+					
+					<div class="input-field col s3">
+						<input class="uppercase" type="text" id="nomePaciente" placeholder="">	
+						<label for="nomePaciente"> Paciente </label>
+					</div>
+					
+					
+					<div class="input-field col s3">
+						<input class="uppercase" type="date" id="dataEntrada" placeholder="">	
+						<label for="dataEntrada"> Data Entrada </label>
+					</div>
+					
+					
+					<div class="input-field col s2">
+						<input class="uppercase" type="date" id="dataEntrega" placeholder="">	
+						<label for="dataEntrega"> Data Entrega </label>
+					</div>
+					
+					<div class="input-field col s2">
+						<input class="uppercase" type="date" id="dataPrevisao" placeholder="">	
+						<label for="dataPrevisao"> Data Prevista </label>
+						
+					</div>
+					
+					<div id="listaProtetico"      name="listaProtetico"> </div>
+					
+					<div class="input-field col s3">
+						<input class="uppercase" type="text" id="observacao" placeholder="">	
+						<label for="observacao"> Obs </label>
+					</div>
+					
+					<div class="input-field col s2">
+						<input class="uppercase" type="text" id="valor" placeholder="">	
+						<label for="valor"> Valor </label>
+					</div>
+					
+					
+				
+					
+						
+			</div>	
+
+			</div>
+				<div class="row ">
+						
+					<div class="col s4">
+						<button class="waves-effect waves-light btn" onclick="inserirLancamento()"> 
+							NOVO
+						</button>
+					</div>
+					<div class="col s4">
+						<button class="waves-effect waves-light btn" onclick="atualizarLancamento()"> 
+							EDITAR
+						</button>
+					</div>
+					<div class="col s4">
+						<button class="waves-effect waves-light btn" onclick="excluirLancamento()"> 
+							EXCLUIR
+							 
+						</button>
+					</div>
+				</div>	
+			
+			<div class="col s12 boxformulario ">
+					<h5 class="center-align"> Lista de Lancamentos</h5>		
+					
+					<div class="col s12 ">
+						<div id="listaLancamento"> </div>
+					</div>
+					
+					<div class="modalLancamento" id="modalLancamento" name="modalLancamento"> </div>
+			</div>
+		
+		</div>
+
+			
+<!-- deixa isso queto -->
+	<script src="../../js/jquery-3.2.1.js"></script>
+	<script src="../../js/materialize.js"></script>
+			
+		
+			
+
+		</div>
+	</BODY>
+</HTML>
+

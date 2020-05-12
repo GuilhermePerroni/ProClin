@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+<HTML lang="pt-br">
+	<HEAD>
+		<meta charset=utf-8>
+		<title> ProClin Prótese Dentária </title>
+		
+		<!--Import Google Icon Font-->
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!---->
+		<link rel="stylesheet" type="text/css" href="../../css/materialize.css">
+		<link rel="stylesheet" type="text/css" href="../../css/custom.css">
+		
+		<!--<link rel="stylesheet" type="text/css" href="Style.css">-->
+		<script type="text/javascript" src="../../js/codigo.js"></script>
+		<script type="text/javascript" src="codigo.js"></script>
+		
+		
+		
+		<script type="text/javascript" src="jquery.js" ></script>
+		<script type="text/javascript" src="jquery.maskMoney.js" ></script>
+		<script type="text/javascript" src="jquery.maskedinput.js" ></script>
+		
+		
+	
+	<script>
+        $(document).ready(function(){
+              $("#valor").maskMoney({showSymbol:false, symbol:"R$", decimal:".", thousands:""});
+			  $("#valorPago").maskMoney({showSymbol:false, symbol:"R$", decimal:".", thousands:""});
+			  $("#valorRestante").maskMoney({showSymbol:false, symbol:"R$", decimal:".", thousands:""});			  
+        });
+    </script>
+		
+	</script>	
+	</HEAD>
+	<BODY onload="criarAbrirBanco()">
+		<div class="row">
+					
+			<div class="col s3 boxformulario">
+				<h5 class="center-align" > Fechamentos </h5>
+		
+				<row>
+				
+					<div class="input-field col s12">
+						<input disabled type="text" id="idLancamento" placeholder="">	
+						<label for="idLancamento"> N Lancamento </label>
+					</div>
+					
+					<div id="listaDenstista"   name="listaDenstista"> </div>
+					<div id="listaProtetico"      name="listaProtetico"> </div>
+					
+					<div class="input-field col s12">
+						
+						<input class="uppercase" type="date" id="dataPagamento" placeholder="">	
+						<label for="dataPagamento"> Data Pagamento </label>
+					</div>
+					
+					<div class="input-field col s12">
+						
+						<input class="uppercase" type="text" id="valor" placeholder="">	
+						<label for="valor"> Valor </label>
+					</div>
+					
+					
+					
+					<div class="input-field col s12">
+						
+						<input  disabled  class="uppercase" type="text" id="valorRestante" placeholder="">	
+						<label for="valorRestante"> Valor Restante </label>
+					</div>
+					
+					<div class="input-field col s12">
+						
+						<input class="uppercase" type="text" id="valorPago" placeholder="">	
+						<label for="valorPago"> Valor Pago </label>
+					</div>
+				
+				
+				</row>
+				
+				<br>
+				
+				<div class="row ">
+					<div class="col s2">
+					</div >
+					
+					<div class="col s3">
+						<button class="waves-effect waves-light btn" onclick="pagarLancamento()"> 
+							PAGAR
+						</button>
+					</div>
+					<div class="col s3">
+						<button class="waves-effect waves-light btn" onclick="cancelarConclusao()"> 
+							CANCELAR
+						</button>
+					</div>
+					
+				</div>
+						
+			<br>
+			</div>
+			
+			
+			<div class="col s9 boxformulario ">
+				<h5 class="center-align"> Lista de Lancamento </h5>
+				<div class="col s12 ">
+					
+					<div id="listaLancamento"> </div>
+				</div>
+			</div>
+			
+			
+		</div>
+		
+		
+		
+		<!-- deixa isso queto -->
+	<script src="../../js/jquery-3.2.1.js"></script>
+	<script src="../../js/materialize.js"></script>
+		
+		
+	</BODY>
+</HTML>
+

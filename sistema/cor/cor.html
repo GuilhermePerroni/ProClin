@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<HTML lang="pt-br">
+	<HEAD>
+		<meta charset=utf-8>
+		<title> ProClin Prótese Dentária </title>
+		
+		
+		<!--Import Google Icon Font-->
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!---->
+		<link rel="stylesheet" type="text/css" href="../../css/materialize.css">
+		<link rel="stylesheet" type="text/css" href="../../css/custom.css">
+		
+		<!--<link rel="stylesheet" type="text/css" href="Style.css">-->
+		<script type="text/javascript" src="../../js/codigo.js"></script>
+		<script type="text/javascript" src="codigo.js"></script>
+		
+	</HEAD>
+	<BODY onload="criarAbrirBanco()">
+		<div class="row">
+					
+			<div class="col s3 boxformulario">
+				<h5 class="center-align" > Cadastro de Cores </h5>
+		
+			
+				
+					<div class="input-field col s12">
+						<input disabled type="text" id="idCor" placeholder="">	
+						<label for="idCor"> Cor </label>
+					</div>
+					
+					<div class="input-field col s12">
+						
+						<input class="uppercase" type="text" id="descricaoCor" placeholder="">	
+						<label for="descricaoCor"> Descrição </label>
+					</div>
+				
+				
+				
+				
+				<br>
+				
+				<div class="row ">
+					<div class="col s2">
+					</div >
+					
+					<div class="col s3">
+						<button class="waves-effect waves-light btn" onclick="inserirCor()"> 
+							NOVO
+						</button>
+					</div>
+					<div class="col s3">
+						<button class="waves-effect waves-light btn" onclick="atualizarCor()"> 
+							EDITAR
+						</button>
+					</div>
+					<div class="col s3">
+						<button class="waves-effect waves-light btn" onclick="excluirCor()"> 
+							EXCLUIR
+							 
+						</button>
+					</div>
+				</div>
+						
+			<br>
+			</div>
+			
+			
+			<div class="col s9 boxformulario ">
+				<h5 class="center-align"> Lista de Cores </h5>
+				<div class="col s12 ">
+					
+					<div id="listaCor"> </div>
+				</div>
+			</div>
+			
+			
+		</div>
+		
+		
+		
+
+	<!-- deixa isso queto -->
+	<script src="../../js/jquery-3.2.1.js"></script>
+	<script src="../../js/materialize.js"></script>
+
+
+	</BODY>
+</HTML>
+

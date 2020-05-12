@@ -1,0 +1,170 @@
+<!DOCTYPE HTML>
+<HTML lang="pt-br">
+	<HEAD>
+		<meta charset=utf-8>
+		<title> ProClin Prótese Dentária </title>
+		
+		
+		
+		
+		<script type="text/javascript" src="jquery.js" ></script>
+		<script type="text/javascript" src="jquery.maskMoney.js" ></script>
+		<script type="text/javascript" src="jquery.maskedinput.js" ></script>
+		
+		<!--Import Google Icon Font-->
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!---->
+		<link rel="stylesheet" type="text/css" href="../../css/materialize.css">
+		<link rel="stylesheet" type="text/css" href="../../css/custom.css">
+		
+		<!--<link rel="stylesheet" type="text/css" href="Style.css">-->
+		<script type="text/javascript" src="../../js/codigo.js"></script>
+		<script type="text/javascript" src="codigo.js"></script>
+	
+	<script>
+        $(document).ready(function(){
+              $("#valor").maskMoney({showSymbol:true, symbol:"R$", decimal:",", thousands:""});
+			  $("#DATAENTRADA").mask("99/99/9999");
+			  
+			  
+        });
+    </script>
+		
+	</script>	
+	</HEAD>
+	<BODY onload="criarAbrirBanco()">
+		<div class="row">
+					
+			<div class="col s3 boxformulario">
+				<h5 class="center-align" > Relatorio </h5>
+		
+				
+				
+					<div class="input-field col s12">
+						<input disabled type="text" id="idLancamento" placeholder="">	
+						<label for="idLancamento"> Lancamento </label>
+					</div>
+					
+					
+					<div id="listaDenstista"   name="listaDenstista"> </div>
+					<div id="listaTipoServico" name="listaTipoServico"> </div>
+					<div id="listaQualidade"   name="listaQualidade"> </div>
+					<div id="listaCor"         name="listaCor"> </div>
+					<div id="listaEscala"      name="listaEscala"> </div>
+					
+					
+					<div class="input-field col s12">
+						
+						<input class="uppercase" type="date" id="dataEntrada" placeholder="">	
+						<label for="dataEntrada"> Data Entrada </label>
+					</div>
+					
+					<div class="input-field col s12">
+						
+						<input class="uppercase" type="date" id="dataEntradaFim" placeholder="">	
+						<label for="dataEntradaFim"> Data Entrada Final</label>
+					</div>
+					
+					
+					<div class="input-field col s12">
+						
+						<input class="uppercase" type="date" id="dataEntrega" placeholder="">	
+						<label for="dataEntrega"> Data Entraga </label>
+					</div>
+					
+					<div class="input-field col s12">
+						
+						<input class="uppercase" type="date" id="dataEntregaFim" placeholder="">	
+						<label for="dataEntregaFim"> Data Entraga Final </label>
+					</div>
+					
+					
+					<div class="input-field col s12">
+						<label>
+							<input type="checkbox" id="taPago" />
+							<span>Com Valor Pago</span>
+						</label>
+					</div>
+					
+					<div class="input-field col s12">
+						<label>
+							<input type="checkbox" id="todos" />
+							<span>Todos</span>
+						</label>
+					</div>
+					
+					<div class="input-field col s12">
+						<label>
+							<input type="checkbox" id="concluidos" />
+							<span>Concluidos</span>
+						</label>
+					</div>
+					
+					<div class="input-field col s12">
+						<label>
+							<input type="checkbox" id="emAberto" />
+							<span>Em Aberto</span>
+						</label>
+					</div>
+				
+				
+				
+				<div class="row ">
+				</div>
+				<div class="row ">
+				</div>
+				
+				<div class="row ">
+					<div class="col s2">
+					</div >
+					
+					<div class="col s3">
+						<button class="waves-effect waves-light btn" onclick="mostrarLancamento()"> 
+							PESQUISAR
+						</button>
+					</div>
+					
+				</div>
+						
+			<br>
+			</div>
+			
+			
+			<div class="col s9 boxformulario ">
+				<h5 class="center-align"> Lista de Lancamentos				</h5>
+				<div class="col s12 ">
+					
+					<div id="listaLancamento"> </div>
+				</div>
+			</div>
+			
+			
+		</div>
+
+		<!-- deixa isso queto -->
+	<script src="../../js/jquery-3.2.1.js"></script>
+	<script src="../../js/materialize.js"></script>
+			
+
+		
+	</BODY>
+</HTML>
+
+
+
+			<div id="form-style-3" class="form-style-3">
+				
+				<div class="form-style-2-heading">
+					
+					Lista de Serviços
+				
+					<a class="exibirPesq" onclick="mostrar()"> Exibir </a>	
+					<a class="acultarPesq" onclick="esconder()"> Ocultar </a>
+				
+				</div>
+				
+				<div class="lista" id="listaLancamento" name="listaLancamento"> Sem itens </div>	
+			</div
+		</div>
+		
+
