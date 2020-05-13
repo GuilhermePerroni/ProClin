@@ -88,8 +88,26 @@ function novoIdContaPagar() {
 }
 
 function mostrarContaPagar() {
+	var where = 'a.IdProtetico = 1';
+
+	var pIdProtetico     = document.getElementById('comboProtetico');
+
+	if (pIdProtetico!=null) {
+		
+		where = "";
+		var idsss=pIdProtetico.selectedIndex+1;
+		
+		where = '  a.IdProtetico = '+ idsss;
+	}
+
+
 	banco.transaction(function (tx) {
-		tx.executeSql('select a.*, b.Nome as Protetico from TContaPagar a left join TProtetico b on (a.IdProtetico = b.IdProtetico) order by Pago asc ',
+		tx.executeSql('select a.*, b.Nome as Protetico, ' +
+						'(select sum(ValorPagar) from TContaPagar where pago = 1 and IdProtetico = a.IdProtetico) as ValorNaoPago,'+
+						'(select sum(ValorPagar) from TContaPagar where pago = 2 and IdProtetico = a.IdProtetico) as ValorPago'+
+					 ' from TContaPagar a left join TProtetico b on (a.IdProtetico = b.IdProtetico) ' + 
+					 'where  ' + where +
+					 ' order by Pago asc ',
 		[],
 		function (tx, results) {
 			var tamanho = results.rows.length;
@@ -107,6 +125,9 @@ function mostrarContaPagar() {
 			var cabecalho = "";
 			var linhas = "";
 			var rodape = "";
+			var SomaTotal = 0;
+			var ValorNaoPago = 0;
+			var ValorPago = 0;
 			
 			cabecalho = '  <table class="bordered striped highlight">                    ' +
 			            ' <tr>                                  ' + 
@@ -124,7 +145,8 @@ function mostrarContaPagar() {
 				item = results.rows.item(i);
 				
 				item['dataPagamento'] = formataData(item['dataPagamento']);
-				
+				ValorNaoPago = item['ValorNaoPago'];
+				ValorPago    = item['ValorPago'];
 			if (item['Pago'] == "0") { item['Pago'] = "---"}; 
 			if (item['Pago'] == "1") { item['Pago'] = "NAO"};
 			if (item['Pago'] == "2") { item['Pago'] = "SIM"};	
@@ -165,9 +187,23 @@ function mostrarContaPagar() {
 											  '</tr>                                                  ';
 					}
 			
+					SomaTotal     = SomaTotal     + parseFloat(item['valorPagar']); 
 			
 			}
+
+			SomaTotal     = moeda(SomaTotal,2,'.','');
 			
+
+			linhas = linhas + '<td class=""><b> Totais </b></td>    ' +
+							  '<td class=""> Valor Total Não Pago: '+ ValorNaoPago +' </td> ' +
+							  '<td class=""> Valor Total Pago: '+ ValorPago +' </td> ' +
+							  
+							   '<td class=""> --- </td> ' +
+							   '<td class=""><b> '+ SomaTotal +' </b></td> ' +
+							    '<td class=""> --- </td> ' +
+							  
+							  '</tr> '; 
+
 			listaContaPagar.innerHTML += cabecalho + linhas + rodape; 
 			
 			},	
@@ -265,7 +301,7 @@ function montaComboProtetico() {
 			var item = null;
 	
 			cabecalho = '<div class="input-field col s12">'+
-						'<select onchange="" class="uppercase" id="comboProtetico" name="comboProtetico"> ';
+						'<select onchange="mostrarContaPagar()" class="uppercase" id="comboProtetico" name="comboProtetico"> ';
 				
 			for(i=0; i < tamanho; i++) {
 				item = results.rows.item(i);

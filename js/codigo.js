@@ -9,6 +9,7 @@ function criarAbrirBanco() {
     banco = openDatabase('ProGuia','1.0','Sistema Para Guia', 2 * 1024 * 1024);
 	MontaHome();
 	
+	$(".dropdown-trigger").dropdown();
 }
 	
 	

@@ -8,6 +8,9 @@ function criarAbrirBanco() {
 	/*alert('ok, Banco Criado e Aberto!');*/
 	
 	criarTabelas();
+	$(document).ready(function(){
+		$('.modal').modal();
+	  });
 }
 	
 function seDerErro(tx, error) {

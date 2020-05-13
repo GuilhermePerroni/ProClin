@@ -23,6 +23,24 @@
 	</div>
 		
 	
+	<!-- Dropdown Structure -->
+	<ul id="cadastrosbasicos" class="dropdown-content">
+		<li><a class="waves-effect waves-light " onclick="MontaFrameQualidade()" >Qualidade</a></li>
+		<li class="divider"></li>
+		<li><a class="waves-effect waves-light " onclick="MontaFrameServico()">Servico</a></li>
+		<li class="divider"></li>
+		<li><a class="waves-effect waves-light " onclick="MontaFrameCor()">Cor</a></li>
+		<li class="divider"></li>
+		<li><a class="waves-effect waves-light " onclick="MontaFrameEscala()" >Escala</a></li>		
+		<li class="divider"></li>
+	</ul>
+	
+	<ul id="financeiro" class="dropdown-content">
+		<li><a class="waves-effect waves-light " onclick="MontaFrameContaPagar()" >Contas a Pagar</a></li>
+		<li class="divider"></li>
+		<li><a class="waves-effect waves-light " onclick="MontaFrameRelatorioLancamentos()">Relatorio</a></li>
+		<li class="divider"></li>
+	</ul>
 	
 	
 	<nav>
@@ -34,17 +52,16 @@
 			
 			
 			<li><a class="waves-effect waves-light btn" onclick="MontaHome()" >Início</a></li>
-			<li><a class="waves-effect waves-light btn" onclick="MontaFrameContaPagar()" >Contas a Pagar</a></li>
+			<li><a class="dropdown-trigger btn" href="#!" data-target="cadastrosbasicos">Cadastros Básicos<i class="material-icons right">arrow_drop_down</i></a></li>
+			<li><a class="dropdown-trigger btn" href="#!" data-target="financeiro">Financeiro<i class="material-icons right">arrow_drop_down</i></a></li>
+			
 			
 			<li><a class="waves-effect waves-light btn" onclick="MontaFrameProtetico()" >Protetico</a></li>
 			<li><a class="waves-effect waves-light btn" onclick="MontaFrameDentista()" >Dentista</a></li>
-			<li><a class="waves-effect waves-light btn" onclick="MontaFrameQualidade()" >Qualidade</a></li>
-			<li><a class="waves-effect waves-light btn" onclick="MontaFrameServico()">Servico</a></li>
-			<li><a class="waves-effect waves-light btn" onclick="MontaFrameCor()">Cor</a></li>
-			<li><a class="waves-effect waves-light btn" onclick="MontaFrameEscala()" >Escala</a></li>
+			
 			<li><a class="waves-effect waves-light btn" onclick="MontaFrameLancamento()" >Lancamento</a></li>
 			<li><a class="waves-effect waves-light btn" onclick="MontaFrameFechamento()">Fechamento</a></li>
-			<li><a class="waves-effect waves-light btn" onclick="MontaFrameRelatorioLancamentos()">Relatorio</a></li>
+			
 		</ul>
 		</div>
 	</nav>

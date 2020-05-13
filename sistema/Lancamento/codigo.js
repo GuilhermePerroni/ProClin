@@ -119,9 +119,14 @@ function novoIdLancamento() {
 
 function mostrarLancamento() {
 	
-	var pIdDentista     = document.getElementById('comboDentista');
-	
-	if (pIdDentista==null) {
+	var pIdDentista     = document.getElementById('comboDentista').selectedIndex+1;
+	var pIdProtetico     = document.getElementById('comboProtetico').selectedIndex+1;;
+
+	where = ' and a.IdDentista = ' + pIdDentista + ' and a.IdProtetico = '+ pIdProtetico;
+
+
+
+	/*if (pIdDentista==0) {
 		
 		where = ' and a.IdDentista = 1' ;
 	} else {
@@ -129,8 +134,25 @@ function mostrarLancamento() {
 		id = pIdDentista.selectedIndex+1;
 		
 		where = ' and a.IdDentista = ' + id ;
-	}
+	}*/
+
 	
+	/*var pIdProtetico     = document.getElementById('comboProtetico');
+	
+	if (pIdProtetico==null) {
+		
+		where = ' and a.IdProtetico = 1' ;
+	} else {
+		
+		idss = pIdProtetico.selectedIndex+1;
+		
+		where = ' and a.IdProtetico = ' + idss ;
+	}*/
+
+	
+	
+	
+
 		
 	
 	banco.transaction(function (tx) {
@@ -143,11 +165,12 @@ function mostrarLancamento() {
 					  '             c4.Descricao  TipoServico4,                 '+
 
 					  
-					  ' d.Descricao as NCor, e.Descricao as NEscala             '+
+					  ' d.Descricao as NCor, e.Descricao as NEscala, q.descricao as NQualidade             '+
 					  'from TLancamento as a LEFT JOIN TDentista    as b on (a.IdDentista = b.IdDentista)      '+
 					  '                      LEFT JOIN TTipoServico as c on (a.IdServico  = c.IdTipoServico)     '+
 					  '                      LEFT JOIN TCor         as d on (a.Cor        = d.IdCor)     '+
 					  '                      LEFT JOIN TEscala      as e on (a.Escala     = e.IdEscala)     '+
+					  '                      LEFT JOIN TQualidade   as q on (a.IdQualidade = q.IdQualidade)     '+
 					 
 					   '                      LEFT JOIN TProtetico  as Pro on (a.IdProtetico = Pro.IdProtetico)     '+
 					 
@@ -187,6 +210,7 @@ function mostrarLancamento() {
 						'	<th class="">TipoServico2</th>' +
 						'	<th class="">TipoServico3</th>' +
 						'	<th class="">TipoServico4</th>' +
+						'	<th class="">Qualidade</th>' +
 						'	<th class="">Cor</th>' +
 						'	<th class="">Escala</th>' +
 						'	<th class="">Entrada</th>    ' +
@@ -224,6 +248,8 @@ function mostrarLancamento() {
 							  '<td class="">' + item['TipoServico2']    +' </td> ' +
 							  '<td class="">' + item['TipoServico3']    +' </td> ' +
 							  '<td class="">' + item['TipoServico4']    +' </td> ' +
+							  
+							  '<td class="">' + item['NQualidade']    +' </td> ' +
 							  '<td class="">' + item['NCor']    +' </td> ' +
 							  '<td class="">' + item['NEscala']    +' </td> ' +
 							  '<td class="">' +  item['Entrada']   +' </td>     ' +
@@ -241,6 +267,7 @@ function mostrarLancamento() {
 			
 			
 			linhas = linhas + '<td class=""><b> Total </b></td>    ' +
+							  '<td class=""> --- </td> ' +
 							  '<td class=""> --- </td> ' +
 							  '<td class=""> --- </td> ' +
 							  '<td class=""> --- </td> ' +
@@ -427,7 +454,7 @@ function montaComboProtetico() {
 			var item = null;
 	
 			cabecalho = '<div class="input-field col s3">'+
-						'<select onchange="" class="uppercase" id="comboProtetico" name="comboProtetico"> ';
+						'<select onchange="mostrarLancamento()" class="uppercase" id="comboProtetico" name="comboProtetico"> ';
 				
 			for(i=0; i < tamanho; i++) {
 				item = results.rows.item(i);
@@ -490,10 +517,31 @@ function MontaValorServico() {
 				var IdTipoServico3 = document.getElementById('comboTipoServico3').selectedIndex + 1;
 				var IdTipoServico4 = document.getElementById('comboTipoServico4').selectedIndex + 1;
 				
+				if (IdTipoServico>1) {
+					idparasomas = IdTipoServico;
+				}
+
+				if (IdTipoServico1>1) {
+					idparasomas = idparasomas + ',' + IdTipoServico1;
+				}
+
+				if (IdTipoServico2>1) {
+					idparasomas = idparasomas +  ',' + IdTipoServico2;
+				}
+
+				if (IdTipoServico3>1) {
+					idparasomas = idparasomas +  ',' + IdTipoServico3;
+				}
+
+				if (IdTipoServico4>1) {
+					idparasomas = idparasomas +  ',' + IdTipoServico4;
+				}
+
 				
 				var where = "";
 				valor = 0;
-				where = "  where IdTipoServico in (" + IdTipoServico + "," + IdTipoServico1 + "," + IdTipoServico2 + "," + IdTipoServico3 + "," + IdTipoServico4 + ")";
+				//where = "  where IdTipoServico in (" + IdTipoServico + "," + IdTipoServico1 + "," + IdTipoServico2 + "," + IdTipoServico3 + "," + IdTipoServico4 + ")";
+				where = "  where IdTipoServico in (" + idparasomas + ")";
 				where = where;
 				banco.transaction(function (tx) {
 					tx.executeSql('select sum(valorPadrao) as valores from TTipoServico' + where,
@@ -510,6 +558,7 @@ function MontaValorServico() {
 							var Valor         = document.getElementById('valor');
 	
 							Valor.value = valor;
+							//Valor.value = idparasomas;
 										
 						}
 						
@@ -685,7 +734,7 @@ function montaComboQualidade() {
 			corpo =  corpo + ' <option value="' + item['IdQualidade'] + '">' + item['Descricao'] + ' </option> ';
 					
 			}
-			rodape = ' </select>  <label for="comboQualidade"> Tipo Serviço </label> </div> ';
+			rodape = ' </select>  <label for="comboQualidade"> Qualidade </label> </div> ';
 			listaQualidade.innerHTML += cabecalho + corpo + rodape;
 			
 			$(document).ready(function(){

@@ -153,11 +153,27 @@ function mostrarLancamento() {
 			
 		}
 		
-		tx.executeSql('select a.*,  b.Nome as Dentista, c.Descricao TipoServico, d.Descricao as NCor, e.Descricao as NEscala             '+
-					  'from TLancamento as a LEFT JOIN TDentista    as b on (a.IdDentista = b.IdDentista)      '+
-					  '                      LEFT JOIN TTipoServico as c on (a.IdServico  = c.IdTipoServico)     '+
-					  '                      LEFT JOIN TCor         as d on (a.Cor        = d.IdCor)     '+
-					  '                      LEFT JOIN TEscala      as e on (a.Escala     = e.IdEscala)     '+
+		tx.executeSql('select a.*,  b.Nome as Dentista, c.Descricao TipoServico, Pro.Nome as Protetico,  '+
+
+		'             c1.Descricao  TipoServico1,                 '+
+		'             c2.Descricao  TipoServico2,                 '+
+		'             c3.Descricao  TipoServico3,                 '+
+		'             c4.Descricao  TipoServico4,                 '+
+
+		
+		' d.Descricao as NCor, e.Descricao as NEscala, q.descricao as NQualidade             '+
+		'from TLancamento as a LEFT JOIN TDentista    as b on (a.IdDentista = b.IdDentista)      '+
+		'                      LEFT JOIN TTipoServico as c on (a.IdServico  = c.IdTipoServico)     '+
+		'                      LEFT JOIN TCor         as d on (a.Cor        = d.IdCor)     '+
+		'                      LEFT JOIN TEscala      as e on (a.Escala     = e.IdEscala)     '+
+		'                      LEFT JOIN TQualidade   as q on (a.IdQualidade = q.IdQualidade)     '+
+	   
+		 '                      LEFT JOIN TProtetico  as Pro on (a.IdProtetico = Pro.IdProtetico)     '+
+	   
+		'                      LEFT JOIN TTipoServico as c1 on (a.IdServico1  = c1.IdTipoServico)     '+
+		'                      LEFT JOIN TTipoServico as c2 on (a.IdServico2  = c2.IdTipoServico)     '+
+		'                      LEFT JOIN TTipoServico as c3 on (a.IdServico3  = c3.IdTipoServico)     '+
+		'                      LEFT JOIN TTipoServico as c4 on (a.IdServico4  = c4.IdTipoServico)     '+
 					  where,
 					 
 		[],
@@ -183,7 +199,12 @@ function mostrarLancamento() {
 						'	<th class="">Nº</th>         ' +
 						'	<th class="">Paciente</th>   ' +
 						'	<th class="">Dentista</th>   ' +
-						'	<th class="">Serviço</th>' +
+						'	<th class="">TipoServico</th>' +
+						'	<th class="">TipoServico1</th>' +
+						'	<th class="">TipoServico2</th>' +
+						'	<th class="">TipoServico3</th>' +
+						'	<th class="">TipoServico4</th>' +
+						'	<th class="">Qualidade</th>' +
 						'	<th class="">Cor</th>        ' +
 						'	<th class="">Escala</th>     ' +
 						'	<th class="">Entrada</th>    ' +
@@ -214,6 +235,12 @@ function mostrarLancamento() {
 							  '<td class="">' + item['Paciente']    +' </td>    ' +
 							  '<td class="">' + item['Dentista']    +' </td>    ' +
 							  '<td class="">' + item['TipoServico']    +' </td> ' +
+							  '<td class="">' + item['TipoServico1']    +' </td> ' +
+							  '<td class="">' + item['TipoServico2']    +' </td> ' +
+							  '<td class="">' + item['TipoServico3']    +' </td> ' +
+							  '<td class="">' + item['TipoServico4']    +' </td> ' +
+							  
+							  '<td class="">' + item['NQualidade']    +' </td> ' +
 							  '<td class="">' + item['NCor']    +' </td>        ' +
 							  '<td class="">' + item['NEscala']    +' </td>     ' +
 							  '<td class="">' + item['Entrada']    +' </td>     ' +
